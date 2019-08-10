@@ -17,6 +17,9 @@ class Category {
   @JsonKey(name: 'total_videos')
   final int totalVideos;
 
+  @JsonKey(name: 'shortname')
+  final String shortname;
+
   @JsonKey(name: 'category_url')
   final String categoryUrl;
 
@@ -28,6 +31,7 @@ class Category {
     this.name,
     this.slug,
     this.totalVideos,
+    this.shortname,
     this.categoryUrl,
     this.coverUrl
   });
@@ -35,14 +39,3 @@ class Category {
   factory Category.fromJson(Map<String, dynamic> json) => _$CategoryFromJson(json);
   Map<String, dynamic> toJson() => _$CategoryToJson(this);
 }
-
-/*
-{
-  "CHID":"1",
-  "name":"Pornstar・AV女優",
-  "slug":"pornstar",
-  "total_videos":350,
-  "category_url":"https://avgle.com/videos/pornstar",
-  "cover_url":"https://static.avgle.com/media/categories/video/1.jpg"
-}
-*/
