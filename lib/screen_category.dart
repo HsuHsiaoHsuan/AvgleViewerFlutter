@@ -1,14 +1,12 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:avgle_viewer_flutter/data/categories.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import 'package:avgle_viewer_flutter/data/categories.dart';
-
 Future<Categories> getCategories() async {
-  final response = 
-      await http.get('https://api.avgle.com/v1/categories');
+  final response = await http.get('https://api.avgle.com/v1/categories');
 
   if (response.statusCode == 200) {
     return Categories.fromJson(json.decode(response.body));
@@ -26,16 +24,10 @@ class CategoryScreen extends StatefulWidget {
   State<StatefulWidget> createState() => CategoryScreenState();
 }
 
-class CategoryScreenState extends State<CategoryScreen> with AutomaticKeepAliveClientMixin {
-
+class CategoryScreenState extends State<CategoryScreen>
+    with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
-
-  @override
-  void initState() {
-    super.initState();
-    print('This sould only be called once.');
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +38,51 @@ class CategoryScreenState extends State<CategoryScreen> with AutomaticKeepAliveC
       ),
       body: Center(
         child: FutureBuilder<Categories>(
-          future: getCategories(), 
+          future: getCategories(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return Text(snapshot.data.response.categories[0].name);
+              return ListView.builder(
+                itemCount: snapshot.data.response.categories.length,
+                itemBuilder: (context, index) {
+                  var tmp = snapshot.data.response.categories[index];
+                  return Column(
+                    children: <Widget>[
+                      Card(
+                        semanticContainer: false,
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        borderOnForeground: false,
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        margin: EdgeInsets.all(10),
+                        child: Column(
+                          children: <Widget>[
+                            AspectRatio(
+                              aspectRatio: 384 / 216,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      fit: BoxFit.fitWidth,
+                                      alignment: Alignment.topCenter,
+                                      image: NetworkImage(tmp.coverUrl))
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomLeft,
+                              child: Container(
+                                margin: EdgeInsets.only(left: 15),
+                                child: Text(tmp.name),
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  );
+                },
+              );
             } else if (snapshot.hasError) {
               return Text('${snapshot.error}');
             }
@@ -59,5 +92,11 @@ class CategoryScreenState extends State<CategoryScreen> with AutomaticKeepAliveC
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    print('This sould only be called once.');
   }
 }
