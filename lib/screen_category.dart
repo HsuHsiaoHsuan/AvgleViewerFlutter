@@ -72,8 +72,8 @@ class CategoryScreenState extends State<CategoryScreen>
                             Align(
                               alignment: Alignment.bottomLeft,
                               child: Container(
-                                margin: EdgeInsets.only(left: 15),
-                                child: Text(tmp.name),
+                                margin: EdgeInsets.only(top:10, left: 15, bottom: 10),
+                                child: Text(tmp.name, style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.3),),
                               ),
                             )
                           ],
