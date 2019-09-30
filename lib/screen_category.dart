@@ -65,7 +65,8 @@ class CategoryScreenState extends State<CategoryScreen>
                                   image: DecorationImage(
                                       fit: BoxFit.fitWidth,
                                       alignment: Alignment.topCenter,
-                                      image: NetworkImage(tmp.coverUrl))
+                                      image: NetworkImage(tmp.coverUrl)
+                                  )
                                 ),
                               ),
                             ),
@@ -73,7 +74,10 @@ class CategoryScreenState extends State<CategoryScreen>
                               alignment: Alignment.bottomLeft,
                               child: Container(
                                 margin: EdgeInsets.only(top:10, left: 15, bottom: 10),
-                                child: Text(tmp.name, style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.3),),
+                                child: Text(
+                                  tmp.name,
+                                  style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.3),
+                                ),
                               ),
                             )
                           ],
@@ -97,6 +101,6 @@ class CategoryScreenState extends State<CategoryScreen>
   @override
   void initState() {
     super.initState();
-    print('This sould only be called once.');
+    print('This sould only be called once in screen_collections.');
   }
 }
