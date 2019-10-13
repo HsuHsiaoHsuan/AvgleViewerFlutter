@@ -1,5 +1,5 @@
-import 'package:avgle_viewer_flutter/screen_category.dart';
-import 'package:avgle_viewer_flutter/screen_collections.dart';
+import 'package:avgle_viewer_flutter/category_view.dart';
+import 'package:avgle_viewer_flutter/collections_view.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -45,8 +45,8 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
       body: PageView(
         controller: _pageController,
         children: <Widget>[
-          CategoryScreen(),
-          CollectionsScreen(),
+          CategoryView(),
+          CollectionsView(),
         ],
         physics: NeverScrollableScrollPhysics(),
       ),
