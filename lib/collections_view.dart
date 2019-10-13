@@ -29,16 +29,16 @@ Future<Collections> getCollections() async {
   }
 }
 
-class CollectionsScreen extends StatefulWidget {
+class CollectionsView extends StatefulWidget {
   final Future<Collections> collections;
 
-  CollectionsScreen({Key key, this.collections}) : super(key: key);
+  CollectionsView({Key key, this.collections}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => CollectionsScreenState();
+  State<StatefulWidget> createState() => CollectionsViewState();
 }
 
-class CollectionsScreenState extends State<CollectionsScreen>
+class CollectionsViewState extends State<CollectionsView>
     with AutomaticKeepAliveClientMixin{
   @override
   bool get wantKeepAlive => true;
