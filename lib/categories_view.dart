@@ -1,7 +1,8 @@
+import 'package:avgle_viewer_flutter/videos_view.dart';
 import 'package:flutter/material.dart';
 
-import 'package:avgle_viewer_flutter/category_model.dart';
-import 'package:avgle_viewer_flutter/category_model.dart' as prefix0;
+import 'package:avgle_viewer_flutter/categories_model.dart';
+import 'package:avgle_viewer_flutter/categories_model.dart' as prefix0;
 
 class CategoryView extends StatefulWidget {
   CategoryView({Key key}) : super(key: key);
@@ -19,7 +20,7 @@ class CategoryViewState extends State<CategoryView>
 
   @override
   void initState() {
-    print('This sould only be called once in screen_collections.');
+    print('This sould only be called once in categories_view.');
     model.getCategories();
     super.initState();
   }
@@ -53,7 +54,13 @@ class CategoryViewState extends State<CategoryView>
                 var tmp = model.data.response.categories[index];
                 return GestureDetector(
                     onTap: () {
-                      debugPrint('${tmp.name}');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => VideosView(
+                                chid: tmp.chid, shortName: tmp.shortname),
+                          ),
+                      );
                     },
                     child: Card(
                       semanticContainer: false,

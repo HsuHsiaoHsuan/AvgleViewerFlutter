@@ -22,12 +22,12 @@ class CollectionsResponse {
   @JsonKey(name: 'collections')
   List<Collection> collections;
 
-  CollectionsResponse(
-      {this.hasMore,
-        this.totalCollections,
-        this.currentOffset,
-        this.limit,
-        this.collections});
+  CollectionsResponse({
+    this.hasMore,
+    this.totalCollections,
+    this.currentOffset,
+    this.limit,
+    this.collections});
 
   CollectionsResponse.fromJson(Map<String, dynamic> json) {
     hasMore = json['has_more'];

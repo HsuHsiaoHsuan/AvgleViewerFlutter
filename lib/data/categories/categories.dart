@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:avgle_viewer_flutter/data/categories_response.dart';
+import 'package:avgle_viewer_flutter/data/categories/categories_response.dart';
 
 part 'categories.g.dart';
 

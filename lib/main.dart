@@ -1,4 +1,4 @@
-import 'package:avgle_viewer_flutter/category_view.dart';
+import 'package:avgle_viewer_flutter/categories_view.dart';
 import 'package:avgle_viewer_flutter/collections_view.dart';
 import 'package:flutter/material.dart';
 
