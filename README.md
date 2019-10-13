@@ -16,7 +16,12 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 
-
+#### 產生json
 flutter pub run build_runner build
-
 flutter pub run build_runner clean
+
+#### 資料模型
+categories -> categories_response -> category
+
+collections -> collections_response -> collection
+

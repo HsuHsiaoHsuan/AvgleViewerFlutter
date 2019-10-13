@@ -53,7 +53,7 @@ class CategoryViewState extends State<CategoryView>
                 var tmp = model.data.response.categories[index];
                 return GestureDetector(
                     onTap: () {
-                      print('object');
+                      debugPrint('${tmp.name}');
                     },
                     child: Card(
                       semanticContainer: false,
