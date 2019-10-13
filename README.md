@@ -25,3 +25,4 @@ categories -> categories_response -> category
 
 collections -> collections_response -> collection
 
+videos -> videos_response -> video

@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import 'package:avgle_viewer_flutter/data/categories.dart';
+import 'package:avgle_viewer_flutter/data/categories/categories.dart';
 
 enum CategoryViewState { Busy, DataRetrived, NoData }
 
@@ -24,7 +24,7 @@ class CategoryModel {
       data = Categories.fromJson(json.decode(response.body));
       _stateController.add(CategoryViewState.DataRetrived);
     } else {
-      return _stateController.addError('Failed to laod data');
+      return _stateController.addError('Failed to load data');
     }
   }
 }

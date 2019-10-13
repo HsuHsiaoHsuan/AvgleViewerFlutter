@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:avgle_viewer_flutter/data/collections.dart';
+import 'package:avgle_viewer_flutter/data/collections/collections.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -14,14 +14,6 @@ Future<Collections> getCollections() async {
   if (response.statusCode == 200) {
 
     final Collections result = Collections.fromJson(json.decode(response.body));
-
-//    setState(() {
-//      _selectedIndex = index;
-      // update _hasMoreItems if there are more
-//      _hasMoreItems = result.response.hasMore;
-//      _loadingMore = false;
-//    });
-
 
     return result;
   } else {
