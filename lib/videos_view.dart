@@ -1,3 +1,4 @@
+import 'package:avgle_viewer_flutter/video_detail_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:avgle_viewer_flutter/videos_model.dart';
@@ -57,7 +58,14 @@ class VideosViewState extends State<VideosView> {
                 itemBuilder: (context, index) {
                   var tmp = model.data.response.videos[index];
                   return GestureDetector(
-                    onTap: () => print(tmp.title),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => VideoDetailView(video: tmp),
+                          ),
+                      );
+                    },
                     child: Card(
                       semanticContainer: false,
                       clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -90,38 +98,8 @@ class VideosViewState extends State<VideosView> {
                       ),
                     ),
                   );
-//                  return Card(
-//                    semanticContainer: false,
-//                    clipBehavior: Clip.antiAliasWithSaveLayer,
-//                    borderOnForeground: false,
-//                    shape: RoundedRectangleBorder(
-//                      borderRadius: BorderRadius.circular(10.0)
-//                    ),
-//                    margin: EdgeInsets.all(5),
-//                    child: Column(
-//                      children: <Widget>[
-//                        AspectRatio(
-//                          aspectRatio: 320 / 180,
-//                          child: Container(
-//                            decoration: BoxDecoration(
-//                              image: DecorationImage(
-//                                fit: BoxFit.fitWidth,
-//                                alignment: Alignment.center,
-//                                image: NetworkImage(tmp.previewUrl)
-//                              )
-//                            ),
-//                          ),
-//                        ),
-//                        Text(
-//                          tmp.title,
-//                          overflow: TextOverflow.ellipsis,
-//                          maxLines: 2,
-//                          softWrap: false,
-//                        ),
-//                      ],
-//                    ),
-//                  );
-                });
+                }
+            );
           },
         ),
       ),
