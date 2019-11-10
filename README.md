@@ -17,8 +17,8 @@ samples, guidance on mobile development, and a full API reference.
 
 
 #### 產生json
-flutter pub run build_runner build
-flutter pub run build_runner clean
+- flutter pub run build_runner build
+- flutter pub run build_runner clean
 
 #### 資料模型
 categories -> categories_response -> category
